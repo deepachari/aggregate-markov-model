@@ -1,0 +1,10 @@
+Abstract: In the study of how children acquire language, one question is how they learn to distinguish between grammatical and ungrammatical utterances. Research has focused on a “statistical learning” mechanism whereby a child intuits the likelihood of an utterance based on the massive amount of linguistic data to which it is exposed daily. To this end, it is useful to create a model which assigns high likelihood to grammatical constructions (and low likelihood to ungrammatical ones) after being trained on large corpora of child-directed speech. One such model, proposed by Lawrence Saul and Fernando Pereira in a 1997 paper, is a type of class-based bigram model called the aggregate Markov model. The model uses an Expectation-Maximization (EM) algorithm to group words probabilistically into classes based only on the raw data of the words ordered in a corpus. From these word-class probabilities, the likelihood and perplexity of any chain of words can be determined (in theory). This project tests an aggregate Markov model written in C++ on corpora from the Brown collection of the CHILDES data and finds that perplexity is reduced in test sets, although the model is vulnerable to overfitting when trained on a small vocabulary. An optimal number of classes may exist to minimize test set perplexity. For future work, alternatives to perplexity as a metric for grammaticality are considered. 
+
+To use: 
+$model.out c train.file test.file
+where
+	c => number from 0 to 999 indicating the number of classes
+	train.file => file of space-delimited words, no annotations, for the model to train on
+	test.file => file of space-delimited words, no annotations, for the model to analyze
+
+Console output produced
